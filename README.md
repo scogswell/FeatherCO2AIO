@@ -1,4 +1,4 @@
-#Feather CO2 Monitor with Logging to Adafruit IO in Circuitpython 
+# Feather CO2 Monitor with Logging to Adafruit IO in Circuitpython 
 
 
  CO2 Monitor with logging to Adafruit IO using an Adafruit ESP32-S3 TFT 
