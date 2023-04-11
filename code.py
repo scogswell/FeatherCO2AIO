@@ -173,7 +173,14 @@ if not io.is_connected:
     pixel.fill((255,255,0))
     print("Not connected to Adafruit IO, connecting")
     message_text.text="IO Connect"
-    io.connect()
+    try:
+        io.connect()
+    except Exception as e:   # pylint: disable=broad-except
+        pixel.fill((255,0,0))
+        print("Failure conneting to Adafruit IO. Error:", e, "\nBoard will hard reset in 30 seconds.")
+        message_text.text="AdafruitIO Error"
+        time.sleep(30)
+        microcontroller.reset()    
 pixel.fill((0,255,255))
 
 print("Waiting for first SCD4x measurement")
